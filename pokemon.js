@@ -10,12 +10,30 @@ class Pokemon {
   }
 
   isEffectiveAgainst(secondPokemon) {
-    return false;
+    if (this.type === "fire" && secondPokemon.type === "grass"){
+      return true
+    }
+    if (this.type === 'water' && secondPokemon.type === 'fire'){
+      return true
+    }
+    if (this.type === 'grass' && secondPokemon.type === "water"){
+    return true
   }
+  return false
+}
 
   isWeakAgainst(secondPokemon) {
-    return false;
+    if (this.type === "fire" && secondPokemon.type === 'water'){
+      return true;
+    }
+    if (this.type === "water" && secondPokemon.type === 'grass'){
+      return true;
   }
+  if (this.type === "grass" && secondPokemon.type === 'fire'){
+    return true;
+  }
+  return false;
+}
 
   takeDamage(attackDamage) {
     this.hitPoints -= attackDamage;
