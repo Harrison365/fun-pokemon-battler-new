@@ -123,3 +123,22 @@ describe("takeDamage", () => {
   }); 
 
 });
+
+describe("Individual Pokemon", () => {
+  test("creates a pokemon with relevant className and Move", () => {
+    const newRattata = new Rattata(15, 3);
+    const newCharmander = new Charmander(15, 3);
+    const newSquirtle = new Squirtle(15, 3);
+    const newBulbasaur = new Bulbasaur(15, 3);
+    expect(newRattata.move).toEqual("tackle");
+    expect(newRattata).toEqual(expect.objectContaining({ name: "Rattata", type: "normal", hitPoints: 15, attackDamage: 3, move: 'tackle'  }));
+    expect(newCharmander.move).toEqual("ember");
+    expect(newCharmander).toEqual(expect.objectContaining({ name: "Charmander", type: "fire", hitPoints: 15, attackDamage: 3, move: 'ember'  }));
+    expect(newSquirtle.move).toEqual("water gun");
+    expect(newSquirtle).toEqual(expect.objectContaining({ name: "Squirtle", type: "water", hitPoints: 15, attackDamage: 3, move: 'water gun'  }));
+    expect(newBulbasaur.move).toEqual("vine whip");
+    expect(newBulbasaur).toEqual(expect.objectContaining({ name: "Bulbasaur", type: "grass", hitPoints: 15, attackDamage: 3, move: 'vine whip'  }));
+   
+  });
+  });
+

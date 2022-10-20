@@ -1,7 +1,7 @@
 const {Pokemon} = require("./pokemon")
 
 class Rattata extends Pokemon {
-    constructor(name, hitpoints, attackDamage){
+    constructor( hitpoints, attackDamage){
     super('Rattata', hitpoints, attackDamage)
 
     }
@@ -15,9 +15,9 @@ class Fire extends Pokemon {
 }
 
 class Charmander extends Fire {
-    constructor(name, hitpoints, attackDamage){
+    constructor(hitpoints, attackDamage){
     super('Charmander', hitpoints, attackDamage)
-
+    this.move = "ember";
     }
 }
 
@@ -28,9 +28,9 @@ class Grass extends Pokemon {
     }
  }
  class Bulbasaur extends Grass {
-    constructor(name, hitpoints, attackDamage){
+    constructor(hitpoints, attackDamage){
     super('Bulbasaur', hitpoints, attackDamage)
-
+    this.move = "vine whip";
     }
 }
 
@@ -42,9 +42,9 @@ class Grass extends Pokemon {
  }
 
  class Squirtle extends Water {
-    constructor(name, hitpoints, attackDamage){
+    constructor( hitpoints, attackDamage){
     super('Squirtle', hitpoints, attackDamage)
-
+    this.move = "water gun";
     }
 }
 
