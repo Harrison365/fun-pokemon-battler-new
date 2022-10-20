@@ -1,5 +1,3 @@
-test test
-
 # Pokemon Battle Game
 
 You will be implementing a Pokemon battle game using the Object Oriented Programming skills you've learned this week!
