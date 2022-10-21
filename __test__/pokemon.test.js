@@ -9,7 +9,7 @@ const {
   Bulbasaur,
 } = require("../pokemonType");
 const { Pokeball } = require("../pokeball.js");
-const {Trainer} = require("../pokemonTrainer")
+const { Trainer } = require("../pokemonTrainer");
 
 describe("Pokemon", () => {
   test("creates a pokemon with given name", () => {
@@ -256,73 +256,91 @@ describe("Trainer", () => {
   test("If has room in belt will catch a new pokemon in a pokeball and add to belt", () => {
     const Politoed = new Water("Politoed", 53, 15);
     const newTrainer = new Trainer();
-    newTrainer.catch(Politoed)
+    newTrainer.catch(Politoed);
     expect(newTrainer.belt[0].pokemon.name).toBe("Politoed");
   });
   test("If has no room in belt will not catch a new pokemon and will instead", () => {
-    const Politoed = new Water("Politoed", 53, 15)
+    const Politoed = new Water("Politoed", 53, 15);
 
     const newTrainer = new Trainer();
-    newTrainer.catch(Politoed)
-    newTrainer.catch(Politoed)
-    newTrainer.catch(Politoed)
-    newTrainer.catch(Politoed)
-    newTrainer.catch(Politoed)
-    newTrainer.catch(Politoed)
-    newTrainer.catch(Politoed)
-    expect(newTrainer.catch(Politoed)).toEqual("your belt is full")
-    expect(newTrainer.belt).toEqual([{ pokemon : {
-      name: 'Politoed',
-      type: 'water',
+    newTrainer.catch(Politoed);
+    newTrainer.catch(Politoed);
+    newTrainer.catch(Politoed);
+    newTrainer.catch(Politoed);
+    newTrainer.catch(Politoed);
+    newTrainer.catch(Politoed);
+    newTrainer.catch(Politoed);
+    expect(newTrainer.catch(Politoed)).toEqual("your belt is full");
+    expect(newTrainer.belt).toEqual([
+      {
+        pokemon: {
+          name: "Politoed",
+          type: "water",
+          hitPoints: 53,
+          attackDamage: 15,
+          move: "tackle",
+        },
+      },
+      {
+        pokemon: {
+          name: "Politoed",
+          type: "water",
+          hitPoints: 53,
+          attackDamage: 15,
+          move: "tackle",
+        },
+      },
+      {
+        pokemon: {
+          name: "Politoed",
+          type: "water",
+          hitPoints: 53,
+          attackDamage: 15,
+          move: "tackle",
+        },
+      },
+      {
+        pokemon: {
+          name: "Politoed",
+          type: "water",
+          hitPoints: 53,
+          attackDamage: 15,
+          move: "tackle",
+        },
+      },
+      {
+        pokemon: {
+          name: "Politoed",
+          type: "water",
+          hitPoints: 53,
+          attackDamage: 15,
+          move: "tackle",
+        },
+      },
+      {
+        pokemon: {
+          name: "Politoed",
+          type: "water",
+          hitPoints: 53,
+          attackDamage: 15,
+          move: "tackle",
+        },
+      },
+    ]);
+  });
+});
+
+describe("getPokemon", () => {
+  test("returns pokemon object should we have the desired pokemon ", () => {
+    const Politoed = new Water("Politoed", 53, 15);
+    const newTrainer = new Trainer();
+    newTrainer.catch(Politoed);
+    expect(newTrainer.getPokemon("Politoed")).toEqual({
+      name: "Politoed",
+      type: "water",
       hitPoints: 53,
       attackDamage: 15,
-      move: 'tackle'
-    }}, { pokemon : {
-      name: 'Politoed',
-      type: 'water',
-      hitPoints: 53,
-      attackDamage: 15,
-      move: 'tackle'
-    }}, { pokemon : {
-      name: 'Politoed',
-      type: 'water',
-      hitPoints: 53,
-      attackDamage: 15,
-      move: 'tackle'
-    }}, { pokemon : {
-      name: 'Politoed',
-      type: 'water',
-      hitPoints: 53,
-      attackDamage: 15,
-      move: 'tackle'
-    }}, { pokemon : {
-      name: 'Politoed',
-      type: 'water',
-      hitPoints: 53,
-      attackDamage: 15,
-      move: 'tackle'
-    }},{ pokemon : {
-      name: 'Politoed',
-      type: 'water',
-      hitPoints: 53,
-      attackDamage: 15,
-      move: 'tackle'
-    }}]
-    )}
-    )
-  })
-    
-  describe("getPokemon", () => {
-    test("returns pokemon object should we have the desired pokemon ", () => {
-      const Politoed = new Water("Politoed", 53, 15)
-      const newTrainer = new Trainer();
-      newTrainer.catch(Politoed)
-      expect(newTrainer.getPokemon("Politoed")).toEqual({
-        name: 'Politoed',
-        type: 'water',
-        hitPoints: 53,
-        attackDamage: 15,
-        move: 'tackle'
-      });
+      move: "tackle",
     });
-  })
+  });
+});
