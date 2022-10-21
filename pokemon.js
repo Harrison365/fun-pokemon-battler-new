@@ -1,4 +1,3 @@
-const { truncate } = require("fs");
 
 class Pokemon {
   constructor(name, hitPoints, attackDamage) {
