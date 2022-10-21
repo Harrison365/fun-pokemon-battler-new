@@ -188,3 +188,61 @@ describe("pokeball contains pokemon", () => {
     expect(pokeballOne.pokemon.name).toBe("snorlax");
   });
 });
+describe("pokeball throw", () => {
+  test("if given arguement of pokemon and pokeball is empty, catch the pokeman", () => {
+    const snorlax = new Pokemon("snorlax", 15, 3);
+    const pokeballOne = new Pokeball();
+    pokeballOne.throw(snorlax);
+    expect(pokeballOne.pokemon.name).toBe("snorlax");
+    //console.log("you caught snorlax")
+  });
+  test("if given arguement of pokemon and pokeball is full, keep current pokemon and send console message", () => {
+    const snorlax = new Pokemon("snorlax", 15, 3);
+    const psyduck = new Water("psyduck", 69420, 69420);
+    const pokeballOne = new Pokeball(snorlax);
+    pokeballOne.throw(psyduck);
+    expect(pokeballOne.pokemon.name).toBe("snorlax");
+    //console.log("you re full up")
+  });
+  test("if pokeball is full and no arguement is passed, throw will return pokemon 'i choose you' message ", () => {
+    const jigglypuff = new Pokemon("jigglypuff", 15, 3);
+    const pokeballOne = new Pokeball(jigglypuff);
+    expect(pokeballOne.throw()).toEqual({
+      name: "jigglypuff",
+      type: "normal",
+      hitPoints: 15,
+      attackDamage: 3,
+      move: "tackle",
+    });
+  });
+  test("if pokeball is empty and no arguements passed, will console log message and pokeball will remain empty", () => {
+    const emptyBall = new Pokeball();
+    expect(emptyBall.throw()).toBe("empty ball, nothing to catch");
+  });
+});
+
+describe("isEmpty", () => {
+  test("if pokeball is empty, return true", () => {
+    const pokeballOne = new Pokeball();
+    expect(pokeballOne.isEmpty()).toBe(true);
+  });
+  test("if pokeball is full, return false", () => {
+    const pokeballOne = new Pokeball();
+    const jigglypuff = new Pokemon("jigglypuff", 15, 3);
+    pokeballOne.throw(jigglypuff);
+    expect(pokeballOne.isEmpty()).toBe(false);
+  });
+});
+
+describe("contains", () => {
+  test("if pokeball is empty, return empty", () => {
+    const pokeballOne = new Pokeball();
+    expect(pokeballOne.contains()).toBe("im empty inside 😭");
+  });
+  test("if pokeball is full, return name", () => {
+    const pokeballOne = new Pokeball();
+    const jigglypuff = new Pokemon("jigglypuff", 15, 3);
+    pokeballOne.throw(jigglypuff);
+    expect(pokeballOne.contains()).toBe("jigglypuff");
+  });
+});
